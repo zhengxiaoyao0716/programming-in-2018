@@ -96,7 +96,7 @@ trigger.:
 
 
 ***
-## 用Steam(流)规避循环
+## 用Steam（流）规避循环
 ``` java
 // ### 循环：
 {
@@ -203,6 +203,7 @@ trigger.:
         state1
     end
 ```
+上面两例都是表达式，它们根据条件真假，执行if或else作用域块内表达式，并返回最后的值。
 ``` es6
     // 处于草案阶段但很多项目已经直接用上的JS的do-if
     const variable = do {
@@ -213,7 +214,6 @@ trigger.:
         }
     };
 ```
-上面两例都是表达式，它们根据条件真假，执行if或else作用域块内表达式，并返回最后的值。
 
 另外， `if` 还有另一种常见场景，特殊逻辑处理，比如：
 ``` javascript
@@ -267,7 +267,7 @@ trigger.:
     show(user.name || user.id);
 }
 ```
-珍爱眼睛，谨防老花。
+珍爱视力，谨防老花。
 
 残念，Java不支持支持非布尔的逻辑短路。但作为代替，Java提供了以下方法：
 ``` Java
@@ -775,7 +775,7 @@ def pong(input):
     console.log('fin.');
 ```
 
-`gorotine (corotine+channel)`: [playground](https://play.golang.org/p/VRP3922ulfI)
+`goroutine (corotine+channel)`: [playground](https://play.golang.org/p/VRP3922ulfI)
 ``` go
 package main
 
@@ -830,6 +830,12 @@ func main() {
 
 
 ### 注意！
+协程 != 并行
+> 单线程也有协程，并发不并行。相应的，协程是否有竞态等都不一定。
+
+协程不一定高效
+> 协程调度开销，协程的优势在于轻量，高并发、IO密集场景适用。（Go的channel配合协程，天然消息队列）
+
 async架构的高度传染性：
 > 如上面那些例子，一旦一个模块运用了 `async` 模型，其调用者也得变为 `async` ，层层向上，具有极强的侵入性。
 
@@ -996,9 +1002,9 @@ func main() {
 除了函数式外，最近另一个重新开始受到关注的编程泛型，很有助于理解模式匹配。
 [playground](https://swish.swi-prolog.org/)
 ``` prolog
-	uniq(_,[]).
-	uniq(X,[H|T]) :- uniq(H, T), uniq(X, T), \+(X=H).
-	uniq([H|T]) :- uniq(H,T).
+    uniq(_,[]).
+    uniq(X,[H|T]) :- uniq(H, T), uniq(X, T), \+(X=H).
+    uniq([H|T]) :- uniq(H,T).
 
     comb([bFromA]).
     comb([cFromB]).
